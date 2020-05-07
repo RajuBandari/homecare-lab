@@ -1,0 +1,29 @@
+stages:
+    - build
+    - test
+    - destroy
+
+
+build:
+    stage: build
+    script:
+        - echo "Buiding"
+        - mkdir build
+        - touch build/info.txt
+    artifacts:
+        paths:
+            - build/
+        
+        
+test:
+    stage: test
+    script:
+        - echo "testing"
+        # - docker build -t test tests/.
+        # - docker run --rm test
+        
+destroy:
+    stage: destroy
+    script:
+        - echo "destroying"
+        - rm -r build/info.txt
